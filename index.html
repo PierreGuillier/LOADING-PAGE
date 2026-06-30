@@ -352,6 +352,52 @@ footer{background:var(--t1);padding:68px 80px 46px;}
   .voice-card{font-size:10.5px!important;}
 }
 
+
+/* --- Correctif mobile hero Agri-IA : cartes visibles sur téléphone --- */
+@media (max-width: 760px){
+  .hero-r{
+    overflow:hidden!important;
+    height:430px!important;
+  }
+  .hero-mockup,
+  .graine-mockup{
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%) scale(.78)!important;
+    transform-origin:center center!important;
+    width:520px!important;
+    max-width:none!important;
+    bottom:20px!important;
+  }
+  .hero-badge-w,
+  .hero-badge-f,
+  .weather-card,
+  .floating-card,
+  .voice-card,
+  .hm-card{
+    right:auto!important;
+    left:50%!important;
+    transform:translateX(-50%) scale(.82)!important;
+    transform-origin:center center!important;
+    max-width:92vw!important;
+  }
+}
+@media (max-width: 430px){
+  .hero-mockup,
+  .graine-mockup{
+    transform:translateX(-50%) scale(.70)!important;
+    bottom:12px!important;
+  }
+  .hero-badge-w,
+  .hero-badge-f,
+  .weather-card,
+  .floating-card,
+  .voice-card,
+  .hm-card{
+    transform:translateX(-50%) scale(.76)!important;
+  }
+}
+
 </style>
     <link rel="icon" type="image/png" href="logo-agri-ia.png">
 </head>
