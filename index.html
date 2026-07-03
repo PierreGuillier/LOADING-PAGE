@@ -630,6 +630,312 @@ footer{background:var(--t1);padding:68px 80px 46px;}
 }
 </style>
 
+
+<style id="hero-bg-color-final-overrides">
+/* Ajustement demandé : fond gauche ancienne couleur + même fond visuel pour les vidéos */
+:root{--hero-old-bg:#f5f2ed;}
+@media (min-width:761px){
+  .hero{
+    background:linear-gradient(90deg,var(--hero-old-bg) 0%,var(--hero-old-bg) 48%,#0A2318 48%,#0A2318 100%)!important;
+  }
+  .hero-l{
+    background:var(--hero-old-bg)!important;
+  }
+  .hero-r,
+  .hero-stage{
+    background:#0A2318!important;
+  }
+  .demo-bg{
+    background:
+      linear-gradient(to right,rgba(10,35,24,.18) 0%,rgba(10,35,24,.08) 18%,rgba(10,35,24,.22) 100%),
+      linear-gradient(to top,rgba(10,35,24,.76) 0%,rgba(10,35,24,.18) 58%,rgba(10,35,24,.08) 100%),
+      url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+    filter:saturate(1.08)!important;
+  }
+  .demo-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(10,35,24,.28);
+    backdrop-filter:blur(3px);
+    -webkit-backdrop-filter:blur(3px);
+  }
+  .demo-shell{
+    background:rgba(245,242,237,.97)!important;
+  }
+  .demo-head{
+    background:rgba(245,242,237,.96)!important;
+  }
+  .demo-frame-wrap,
+  .demo-frame{
+    background:var(--hero-old-bg)!important;
+  }
+}
+@media (max-width:760px){
+  .hero,
+  .hero-l{
+    background:var(--hero-old-bg)!important;
+  }
+  .demo-bg{
+    background:
+      linear-gradient(to top,rgba(10,35,24,.72),rgba(10,35,24,.14)),
+      url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+  }
+  .demo-shell,.demo-head,.demo-frame-wrap,.demo-frame{
+    background:var(--hero-old-bg)!important;
+  }
+}
+</style>
+
+
+
+<style id="photo-background-for-demo-final">
+  /* Fond photo identique à l’intro derrière les démonstrations */
+  .hero-slide.demo-one,
+  .hero-slide.demo-two{
+    background:url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+  }
+  .hero-slide.demo-one::before,
+  .hero-slide.demo-two::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:0;
+    background:
+      linear-gradient(to right,rgba(247,244,239,.08) 0%,rgba(10,35,24,.14) 22%,rgba(10,35,24,.58) 100%),
+      linear-gradient(to top,rgba(10,35,24,.72) 0%,rgba(10,35,24,.20) 58%,rgba(10,35,24,.08) 100%);
+    pointer-events:none;
+  }
+  .demo-bg{
+    z-index:0!important;
+    background:url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+    filter:brightness(.72) saturate(1.12)!important;
+  }
+  .demo-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to right,rgba(247,244,239,.10),rgba(10,35,24,.18) 34%,rgba(10,35,24,.58)),
+      rgba(10,35,24,.18)!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  .demo-shell{
+    z-index:2!important;
+    background:rgba(247,244,239,.90)!important;
+    backdrop-filter:blur(10px)!important;
+    -webkit-backdrop-filter:blur(10px)!important;
+  }
+  .demo-frame-wrap{
+    background:
+      linear-gradient(rgba(247,244,239,.78),rgba(247,244,239,.78)),
+      url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+  }
+  .demo-frame{background:transparent!important;}
+  @media(max-width:760px){
+    .hero-slide.demo-one,
+    .hero-slide.demo-two,
+    .demo-bg,
+    .demo-frame-wrap{
+      background-image:
+        linear-gradient(rgba(247,244,239,.76),rgba(247,244,239,.76)),
+        url('home-agriculteur-telephone.png')!important;
+      background-position:center center!important;
+      background-size:cover!important;
+      background-repeat:no-repeat!important;
+    }
+    .demo-shell{background:rgba(247,244,239,.92)!important;}
+  }
+</style>
+
+
+
+<style id="final-photo-background-only-overlay">
+/* Modification demandée : la photo d’intro reste le fond permanent.
+   Seuls le titre + la démonstration apparaissent/disparaissent par-dessus. */
+@media (min-width:761px){
+  .hero-r,
+  .hero-stage{
+    background:url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+  }
+
+  .hero-slide.demo-one,
+  .hero-slide.demo-two{
+    background:transparent!important;
+  }
+
+  .hero-slide.demo-one::before,
+  .hero-slide.demo-two::before{
+    content:''!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:0!important;
+    background:
+      linear-gradient(to right,rgba(247,244,239,.08) 0%,rgba(10,35,24,.16) 24%,rgba(10,35,24,.58) 100%),
+      linear-gradient(to top,rgba(10,35,24,.74) 0%,rgba(10,35,24,.18) 58%,rgba(10,35,24,.08) 100%)!important;
+    pointer-events:none!important;
+  }
+
+  .demo-bg{
+    display:none!important;
+  }
+
+  .demo-shell{
+    z-index:2!important;
+    width:min(94%,900px)!important;
+    height:min(90%,780px)!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    overflow:visible!important;
+  }
+
+  .demo-head{
+    min-height:112px!important;
+    padding:0 8px 18px!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+  }
+
+  .demo-kicker{
+    color:var(--gold)!important;
+    text-shadow:0 2px 18px rgba(0,0,0,.35)!important;
+  }
+
+  .demo-title{
+    color:#fff!important;
+    text-shadow:0 3px 24px rgba(0,0,0,.42)!important;
+  }
+
+  .demo-desc{
+    color:rgba(255,255,255,.88)!important;
+    text-shadow:0 2px 18px rgba(0,0,0,.38)!important;
+  }
+
+  .demo-pill{
+    color:#fff!important;
+    background:rgba(10,35,24,.54)!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    box-shadow:0 12px 32px rgba(0,0,0,.20)!important;
+    backdrop-filter:blur(14px)!important;
+    -webkit-backdrop-filter:blur(14px)!important;
+  }
+
+  .demo-frame-wrap{
+    flex:1!important;
+    background:transparent!important;
+    overflow:visible!important;
+    border-radius:28px!important;
+  }
+
+  .demo-frame{
+    border-radius:28px!important;
+    overflow:hidden!important;
+    background:transparent!important;
+    box-shadow:0 34px 90px rgba(0,0,0,.36)!important;
+  }
+
+  .photo .hero-bg{
+    opacity:1!important;
+  }
+}
+
+@media (max-width:760px){
+  .hero-r,
+  .hero-stage{
+    background:url('home-agriculteur-telephone.png') center center/cover no-repeat!important;
+  }
+
+  .hero-slide.demo-one,
+  .hero-slide.demo-two{
+    background:transparent!important;
+  }
+
+  .hero-slide.demo-one::before,
+  .hero-slide.demo-two::before{
+    content:''!important;
+    position:absolute!important;
+    inset:0!important;
+    z-index:0!important;
+    background:linear-gradient(to top,rgba(10,35,24,.78),rgba(10,35,24,.12))!important;
+    pointer-events:none!important;
+  }
+
+  .demo-bg{display:none!important;}
+
+  .demo-shell{
+    z-index:2!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    overflow:visible!important;
+  }
+
+  .demo-head{
+    background:transparent!important;
+    border:0!important;
+    padding:12px 6px 14px!important;
+    min-height:132px!important;
+  }
+
+  .demo-title{color:#fff!important;text-shadow:0 3px 22px rgba(0,0,0,.45)!important;}
+  .demo-desc{color:rgba(255,255,255,.88)!important;text-shadow:0 2px 16px rgba(0,0,0,.38)!important;}
+  .demo-kicker{color:var(--gold)!important;text-shadow:0 2px 16px rgba(0,0,0,.35)!important;}
+  .demo-pill{
+    color:#fff!important;
+    background:rgba(10,35,24,.54)!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    backdrop-filter:blur(12px)!important;
+    -webkit-backdrop-filter:blur(12px)!important;
+  }
+  .demo-frame-wrap{background:transparent!important;overflow:visible!important;}
+  .demo-frame{border-radius:22px!important;box-shadow:0 24px 60px rgba(0,0,0,.36)!important;background:transparent!important;}
+}
+</style>
+
+
+
+<style id="fix-story-nav-over-title">
+/* Correction : le sélecteur ne doit plus masquer le titre de la démonstration. */
+@media (min-width:761px){
+  .story-nav{
+    top:12px!important;
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%)!important;
+    padding:4px 5px!important;
+    border-radius:999px!important;
+    background:rgba(255,255,255,.70)!important;
+    box-shadow:0 8px 22px rgba(0,0,0,.12)!important;
+    max-width:calc(100% - 120px)!important;
+  }
+  .story-tabs{
+    gap:2px!important;
+  }
+  .story-tab{
+    font-size:12px!important;
+    padding:7px 12px!important;
+    line-height:1!important;
+  }
+  .story-tab.is-active{
+    box-shadow:0 4px 12px rgba(24,76,59,.20)!important;
+  }
+  .demo-head{
+    padding-top:42px!important;
+  }
+}
+@media (min-width:1200px){
+  .story-nav{top:14px!important;}
+  .story-tab{font-size:12.5px!important;padding:8px 16px!important;}
+  .demo-head{padding-top:48px!important;}
+}
+</style>
 </head>
 <body><header id="hdr">
   <a href="index.html" class="logo-wrap">
