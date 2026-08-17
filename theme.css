@@ -369,7 +369,7 @@ body:has(.gr-consent.is-visible) .gr-mob-cta{display:none;}
    ========================================================================= */
 @media(max-width:1100px){
   .gr-header{padding:0 20px;}
-  .gr-nav{display:none;}
+  .gr-nav{display:none!important;}
   .gr-grid-2,.gr-grid-3,.gr-grid-4,.gr-faq-grid{grid-template-columns:1fr;}
   .gr-footer-top{grid-template-columns:1fr 1fr;}
   .gr-field-row{grid-template-columns:1fr;}
@@ -413,6 +413,7 @@ body:has(.gr-consent.is-visible) .gr-mob-cta{display:none;}
 .gr-consent-refuse{background:transparent;color:#fff;border-color:rgba(255,255,255,.35);}
 @media(max-width:520px){
   .gr-consent{flex-direction:column;padding:20px;}
+  .gr-consent-text{flex-basis:auto;}
   .gr-consent-actions{width:100%;}
   .gr-consent-actions button{flex:1;}
 }
