@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://agri-ia.com/conformite-verre-hero.webp">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Agri-IA", "url": "https://agri-ia.com/", "logo": "https://agri-ia.com/logo-agri-ia.png", "description": "Agri-IA centralise la gestion d'une exploitation agricole française avec l'assistant vocal Graine.", "email": "pierre@agri-ia.com"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://agri-ia.com/"},{"@type":"ListItem","position":2,"name":"Ressources","item":"https://agri-ia.com/ressources.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Ressources et guides pour agriculteurs","url":"https://agri-ia.com/ressources.html","hasPart":[{"@type":"Article","headline":"Registre phytosanitaire 2027 : ce qui change vraiment pour votre exploitation","url":"https://agri-ia.com/guide-registre-phytosanitaire-2027.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Ressources et guides pour agriculteurs","url":"https://agri-ia.com/ressources.html","hasPart":[{"@type":"Article","headline":"Rentabilité par parcelle : ce que chaque culture vous rapporte vraiment","url":"https://agri-ia.com/guide-rentabilite-par-parcelle.html"},{"@type":"Article","headline":"Gestion du stock d'intrants : éviter les ruptures et les pertes coûteuses","url":"https://agri-ia.com/guide-gestion-stock-intrants.html"},{"@type":"Article","headline":"Registre phytosanitaire 2027 : ce qui change vraiment pour votre exploitation","url":"https://agri-ia.com/guide-registre-phytosanitaire-2027.html"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -84,7 +84,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="gr-eyebrow gr-reveal"><span class="gr-eyebrow-dot"></span>Nos guides</div>
     <h2 class="gr-h2 gr-reveal gr-reveal--d1" style="margin-bottom:36px;">À lire avant de vous lancer.</h2>
     <div class="gr-grid-3">
-      <a href="guide-registre-phytosanitaire-2027.html" class="gr-card gr-reveal" style="display:block;text-decoration:none;color:inherit;">
+      <a href="guide-rentabilite-par-parcelle.html" class="gr-card gr-reveal" style="display:block;text-decoration:none;color:inherit;">
+        <div class="gr-card-tag">Rentabilité</div>
+        <h3>Rentabilité par parcelle : ce que chaque culture vous rapporte vraiment</h3>
+        <p>Méthode de calcul, coûts à additionner et erreurs fréquentes pour savoir où vous gagnez de l'argent, et où vous en perdez.</p>
+        <span class="gr-card-link">Lire le guide <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="guide-gestion-stock-intrants.html" class="gr-card gr-reveal gr-reveal--d1" style="display:block;text-decoration:none;color:inherit;">
+        <div class="gr-card-tag">Stock</div>
+        <h3>Gestion du stock d'intrants : éviter les ruptures et les pertes coûteuses</h3>
+        <p>Méthode de suivi, erreurs fréquentes et façon de savoir en permanence ce qu'il vous reste, sans inventaire manuel.</p>
+        <span class="gr-card-link">Lire le guide <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="guide-registre-phytosanitaire-2027.html" class="gr-card gr-reveal gr-reveal--d2" style="display:block;text-decoration:none;color:inherit;">
         <div class="gr-card-tag">Registre 2027</div>
         <h3>Registre phytosanitaire 2027 : ce qui change vraiment pour votre exploitation</h3>
         <p>Obligations, informations à enregistrer, risques encourus et étapes concrètes pour préparer votre registre sans stress.</p>
@@ -155,6 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="gr-footer-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
+      <a href="#" onclick="grConsentOpen();return false;">Gérer mes cookies</a>
       <a href="mailto:pierre@agri-ia.com?subject=Demande%20d%27information%20Agri-IA">pierre@agri-ia.com</a>
     </div>
   </div>
@@ -165,20 +178,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="gr-consent" id="gr-consent">
   <div class="gr-consent-text"><strong>Respect de votre vie privée.</strong> Nous utilisons des cookies de mesure d’audience (Google Analytics) pour comprendre l’usage du site. Voir notre <a href="confidentialite.html">politique de confidentialité</a>.</div>
   <div class="gr-consent-actions">
+    <button class="gr-consent-link" onclick="grConsentToggleDetail()">Personnaliser</button>
     <button class="gr-consent-refuse" onclick="grConsent(false)">Refuser</button>
     <button class="gr-consent-accept" onclick="grConsent(true)">Accepter</button>
+  </div>
+  <div class="gr-consent-detail" id="gr-consent-detail">
+    <div class="gr-consent-row">
+      <div class="gr-consent-row-text"><strong>Cookies strictement nécessaires</strong><span>Mémorisation de votre choix de consentement. Toujours actifs.</span></div>
+      <label class="gr-toggle"><input type="checkbox" checked disabled><span class="gr-toggle-slider"></span></label>
+    </div>
+    <div class="gr-consent-row">
+      <div class="gr-consent-row-text"><strong>Mesure d'audience (Google Analytics)</strong><span>Nous aide à comprendre la fréquentation du site.</span></div>
+      <label class="gr-toggle"><input type="checkbox" id="gr-consent-analytics"><span class="gr-toggle-slider"></span></label>
+    </div>
+    <div class="gr-consent-actions gr-consent-save">
+      <button class="gr-consent-accept" onclick="grConsentSave()">Enregistrer mes choix</button>
+    </div>
   </div>
 </div>
 <script>
 (function(){
   var saved=localStorage.getItem('gr_consent');
-  if(saved==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}
+  var toggle=document.getElementById('gr-consent-analytics');
+  if(saved==='granted'){gtag('consent','update',{'analytics_storage':'granted'});if(toggle)toggle.checked=true;}
   else if(!saved){document.getElementById('gr-consent').classList.add('is-visible');}
 })();
+function grConsentToggleDetail(){
+  document.getElementById('gr-consent-detail').classList.toggle('is-open');
+}
 function grConsent(granted){
   localStorage.setItem('gr_consent', granted?'granted':'denied');
-  if(granted){gtag('consent','update',{'analytics_storage':'granted'});}
+  gtag('consent','update',{'analytics_storage':granted?'granted':'denied'});
   document.getElementById('gr-consent').classList.remove('is-visible');
+  document.getElementById('gr-consent-detail').classList.remove('is-open');
+}
+function grConsentSave(){
+  grConsent(document.getElementById('gr-consent-analytics').checked);
+}
+function grConsentOpen(){
+  var saved=localStorage.getItem('gr_consent');
+  var toggle=document.getElementById('gr-consent-analytics');
+  if(toggle) toggle.checked=(saved==='granted');
+  document.getElementById('gr-consent').classList.add('is-visible');
 }
 </script>
 </body>

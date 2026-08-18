@@ -89,6 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="gr-footer-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
+      <a href="#" onclick="grConsentOpen();return false;">Gérer mes cookies</a>
       <a href="mailto:pierre@agri-ia.com?subject=Demande%20d%27information%20Agri-IA">pierre@agri-ia.com</a>
     </div>
   </div>
@@ -99,20 +100,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="gr-consent" id="gr-consent">
   <div class="gr-consent-text"><strong>Respect de votre vie privée.</strong> Nous utilisons des cookies de mesure d’audience (Google Analytics) pour comprendre l’usage du site. Voir notre <a href="confidentialite.html">politique de confidentialité</a>.</div>
   <div class="gr-consent-actions">
+    <button class="gr-consent-link" onclick="grConsentToggleDetail()">Personnaliser</button>
     <button class="gr-consent-refuse" onclick="grConsent(false)">Refuser</button>
     <button class="gr-consent-accept" onclick="grConsent(true)">Accepter</button>
+  </div>
+  <div class="gr-consent-detail" id="gr-consent-detail">
+    <div class="gr-consent-row">
+      <div class="gr-consent-row-text"><strong>Cookies strictement nécessaires</strong><span>Mémorisation de votre choix de consentement. Toujours actifs.</span></div>
+      <label class="gr-toggle"><input type="checkbox" checked disabled><span class="gr-toggle-slider"></span></label>
+    </div>
+    <div class="gr-consent-row">
+      <div class="gr-consent-row-text"><strong>Mesure d'audience (Google Analytics)</strong><span>Nous aide à comprendre la fréquentation du site.</span></div>
+      <label class="gr-toggle"><input type="checkbox" id="gr-consent-analytics"><span class="gr-toggle-slider"></span></label>
+    </div>
+    <div class="gr-consent-actions gr-consent-save">
+      <button class="gr-consent-accept" onclick="grConsentSave()">Enregistrer mes choix</button>
+    </div>
   </div>
 </div>
 <script>
 (function(){
   var saved=localStorage.getItem('gr_consent');
-  if(saved==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}
+  var toggle=document.getElementById('gr-consent-analytics');
+  if(saved==='granted'){gtag('consent','update',{'analytics_storage':'granted'});if(toggle)toggle.checked=true;}
   else if(!saved){document.getElementById('gr-consent').classList.add('is-visible');}
 })();
+function grConsentToggleDetail(){
+  document.getElementById('gr-consent-detail').classList.toggle('is-open');
+}
 function grConsent(granted){
   localStorage.setItem('gr_consent', granted?'granted':'denied');
-  if(granted){gtag('consent','update',{'analytics_storage':'granted'});}
+  gtag('consent','update',{'analytics_storage':granted?'granted':'denied'});
   document.getElementById('gr-consent').classList.remove('is-visible');
+  document.getElementById('gr-consent-detail').classList.remove('is-open');
+}
+function grConsentSave(){
+  grConsent(document.getElementById('gr-consent-analytics').checked);
+}
+function grConsentOpen(){
+  var saved=localStorage.getItem('gr_consent');
+  var toggle=document.getElementById('gr-consent-analytics');
+  if(toggle) toggle.checked=(saved==='granted');
+  document.getElementById('gr-consent').classList.add('is-visible');
 }
 </script>
 </body>
