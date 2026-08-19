@@ -38,6 +38,8 @@
 }
 
 html{scroll-behavior:smooth;}
+/* Désactive l'axe "WONK" de Fraunces (police variable) : c'est ce réglage qui active les lettres excentriques (f, j...) plutôt que les formes standard. */
+*{font-optical-sizing:none;font-variation-settings:"opsz" 28,"WONK" 0;}
 body{
   font-family:var(--font-body);
   background:var(--beige);
